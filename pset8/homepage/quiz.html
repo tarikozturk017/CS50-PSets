@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>QuizZz</title>
+        <link href="styles.css" rel="stylesheet">
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+                var count = 0;
+                let corrects = document.querySelectorAll('.correct');
+                for (let j = 0; j < corrects.length; j++){
+                    corrects[j].addEventListener('click', function() {
+                        corrects[j].style.backgroundColor = 'green';
+                        alert("That's right! Have we met before?!");
+                        count++;
+                        if (count == 4) {
+                            document.querySelector('#feedback').innerHTML="You answered all of my personal questions correctly! Congratulations! I feel like we are friends already!";
+                        }
+                    });
+                }
+
+                let incorrects = document.querySelectorAll('.incorrect');
+                for (let i = 0; i < incorrects.length; i++){
+                    incorrects[i].addEventListener('click', function() {
+                        incorrects[i].style.backgroundColor = 'red';
+                        alert("That's wrong! You should give another shot!");
+                    });
+                }
+            });
+
+        </script>
+    </head>
+
+
+    <body>
+        <button class="linking" onclick="location.href='index.html'">Homepage</button>
+        <button class="linking" onclick="location.href='aboutme.html'">About Me</button>
+        <button class="linking" onclick="location.href='hobbies.html'">My Hobbies</button>
+        <button class="linking" onclick="location.href='quiz.html'">QuizZz</button>
+        <div id="quizHeading">
+            <h1 id="quizname" class="headings1">Quiz Time!!!</h1>
+        </div>
+        <p>Try to give your best answer to the questions below by going with your gut feeling!</p>
+        <br>
+        <hr>
+        <div class="questions">
+            <h3 class="headings2">What is the lecture that I went whole semester mistakely and eventually realize that I did not even take?</h3>
+            <button class="incorrect">Winter Sports</button>
+            <button class="incorrect">Gymnastic</button>
+            <button class="correct">Massage Therapy</button>
+            <button class="incorrect">Disability Sports</button>
+        <hr>
+            <h3 class="headings2">Which season I like the most?</h3>
+            <button class="incorrect">Fall</button>
+            <button class="correct">Winter</button>
+            <button class="incorrect">Spring</button>
+            <button class="incorrect">Summer</button>
+        <hr>
+            <h3 class="headings2">Which football club do I support?</h3>
+            <button class="incorrect">Trabzonspor</button>
+            <button class="incorrect">Fenerbahce</button>
+            <button class="incorrect">Besiktas</button>
+            <button class="correct">Galatasaray</button>
+        <hr>
+            <h3 class="headings2">What was my favorite band when I was in high school?</h3>
+            <button class="incorrect">AC/DC</button>
+            <button class="correct">Guns N' Roses</button>
+            <button class="incorrect">Metallica</button>
+            <button class="incorrect">Megadeth</button>
+            <p id="feedback"></p>
+        </div>
+        <br>
+        <br>
+    </body>
+</html>

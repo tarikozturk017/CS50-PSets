@@ -1,0 +1,79 @@
+/*Have at least one stylesheet file of your own creation, styles.css,
+which uses at least five (5) different CSS selectors (e.g. tag (example), class (.example), or ID (#example)),
+and within which you use a total of at least five (5) different CSS properties, such as font-size, or margin */
+
+html { overflow-y: scroll; overflow-x:hidden; }
+
+body {
+    position: absolute;
+    left: 20%;
+    top: 10%;
+    background-color: #c885ff;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 2.0;
+    margin: 0;
+    text-align: left;
+    padding: 0.5rem 2rem 1rem 2rem;
+    right: 20%;
+}
+
+.pages {
+    font-family: Garamond;
+    font-size: 25px;
+    margin: 50px;
+    background-color: #b042ff;
+    font-weight: bold;
+    left: 30%;
+}
+
+.linking {
+    font-family: Garamond;
+    font-size: 20px;
+    margin: 42px;
+    background-color: #b042ff;
+}
+
+.headings1 {
+    font-weight: bold;
+    text-align: center
+}
+
+.headings2 {
+    font-weight: bold;
+}
+
+.headings3 {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.correct {
+    background-color: #ffd9ba;
+    margin: 15px;
+    font-weight: bold;
+    font-size: 15px;
+    left: 30%;
+}
+
+.incorrect {
+    background-color: #ffd9ba;
+    margin: 15px;
+    font-weight: bold;
+    font-size: 15px;
+    left: 30%;
+}
+
+#quizname {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 50px;
+}
+
+#feedback {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 30px;
+    color: #cf0000;
+    bottom: 10%;
+}
