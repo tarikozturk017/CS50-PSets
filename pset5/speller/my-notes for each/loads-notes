@@ -1,0 +1,62 @@
+it is responsible for taking the dictionary and loading into a hash table.
+    -loads func takes as its argument char *dictionary file that you'll open up and read from, in order to load all this data into ur hash table.
+    -it'll return true, if succ. load into hash table /  false if there is some memory error.
+
+    HOW???
+
+    -when open and store all the words in memory, you'll store them all inside of a hash table.
+        -Hash Table = array of individual linked lists.
+        -The way you of determining which of those linked lists you're gonna insert a word into is based on a hash function.
+            -Function in this case -> will take input, a string or a word that you'll include in the dictionary. And output will be some number u'll be able to generate from
+            that input, which is going to correspond to which of the linked lists you want to place this particular word into.
+
+            Hash Function -> takes a word as input / outputs a number corresponding to which "bucket" to store the word in
+            //(Like A - B - C .. buckets. A is index 0 B is 2 .. So if a word starts with 'B' store it in index 1 ('words[0]- A) )
+            Each index inside of the Hash Table will be a linked list.
+                -Link lists -> a way of storing data, be formed by nodes.
+                    -Each nodes has a word(char of array) and a pointer which gives us the address of the next node in this linked lists.
+                    //So hash table gives us the first node, 1st the 2nd ... until the end (find value NULL)
+
+    Initially, the hash table will be empty. How to add more data to the Hash table???
+    - Allacote memory for a new node. + put some data into that // node *n = malloc(sizeof(node));
+    - How to put data in that node? (n) --> strcopy(n->word, "hello"); copy "hello" into n->word. + If u know, set n->next to sth ; = NULL; for now.
+
+
+    1) open up the dictionary file
+    2) read strings from file one word in the dict. at a time
+    3) create a new node for each word ( value + next pointer)
+    4) hash word to obtain a hash value. (use the hash function) + index into ur hash table to determine which of those linked list u should use when u inserting words to linked lists
+    5) insert node into hash table at that location given by hash function.
+
+        1) How to open the dictionary file.
+            -argument of the load function is char *dictionary.
+            -Use fopen + check if return value is NULL --> false ow -> keep going to the next step
+
+        2) Read string from the File
+            - fscanf(file, "%s", word) --> 1st arg is file pointer(result of calling fopen on the dictionary file,
+                                        -> 2nd you want to read in a string %s,
+                                        -> 3rd word = character array (place to read the word into)/(some character array inside of memory, where u can
+                                            then access all of the individual characters of that word after you've read it from the file.
+            - you need to repeat it again and again for each words in the dictionary one word at a time over and over, until fscanf returns EOF -> sign of finished reading.
+
+            - You need a loop to run fscanf again and again !!!
+
+        3)  For each individual words create a new node - to store particular word inside of ur Hash Table
+            - Malloc to allocate memory
+            - Check if malloc return NULL or not
+            - Copy the word using "strcpy" into the node (copy string from one location to another location)
+
+        4) How to insert this node into the hash table
+            - we need to determine which linked list we should use when determining where to place this particular node we created.
+                -To do that, use Hash Function, which takes a string and returns an index, some number that you can use to index into ur linked list.
+                / for now use given Hash func. -> later on this assignment it'll be replaced with a better hash func.
+
+        5) Insert node into hash table (the linked list)
+            - you need to index into the hash table to get the linked list you wanna use to add this particular word into.
+            - to do that, add a new node to the linked list. so Make sure you're setting your pointers in the correct order.
+                    - New node should point to the first node, then head(1st element of the linked list) should point to the new node.
+            Repeat this process for every word in the dictionary reading that word using fscanf, allocating enough memory to store that word,
+            copying the word into the node, then inserting that node into one of the linked lists in your hash table based on the result of
+            calling the hash function.
+
+            After doing all the words, beging spell-checking process.,
