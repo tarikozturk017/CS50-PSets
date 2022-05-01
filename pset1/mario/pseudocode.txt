@@ -1,0 +1,4 @@
+//ask user about the height
+force him/her to give a integer between 1-8
+if n=1 -> 7"." + 1 "#"  -->  n=8 -> 0"." + 8"#"
+set "." 7 j--  +  set "#" 1 j++
